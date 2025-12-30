@@ -3,8 +3,6 @@
     # ./ai/avante.nix
     ./ai/copilot-lua.nix
     ./ai/copilot-lsp.nix
-    ./ai/opencode.nix
-    ./ai/sidekick.nix
 
     ./completion/blink.nix
     ./completion/friendly-snippets.nix

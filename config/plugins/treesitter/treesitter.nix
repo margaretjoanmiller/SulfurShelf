@@ -16,9 +16,7 @@
             "gnuplot-grammar"
             "haskell-grammar"
             "hlsl-grammar"
-            "julia-grammar"
             "koto-grammar"
-            "lean-grammar"
             "nim-grammar"
             "scala-grammar"
             "slang-grammar"
@@ -68,25 +66,6 @@
         separator = "-";
       };
     };
-
-    treesitter-refactor = {
-      inherit (config.plugins.treesitter) enable;
-
-      settings = {
-        highlightDefinitions = {
-          enable = true;
-          clearOnCursorMove = true;
-        };
-        smartRename = {
-          enable = true;
-          keymaps = {
-            smart_rename = "gR";
-          };
-        };
-        navigation.enable = true;
-      };
-    };
-  };
 
   keymaps = lib.mkIf config.plugins.treesitter-context.enable [
     {

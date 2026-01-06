@@ -2,7 +2,6 @@
   plugins.lspkind = {
     enable = false;
     settings = {
-
       # cmp.menu = {
       #   nvim_lsp = "";
       #   nvim_lua = "";

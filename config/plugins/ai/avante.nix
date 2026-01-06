@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   extraPlugins = lib.mkIf config.plugins.avante.enable [
     pkgs.vimPlugins.img-clip-nvim
   ];
@@ -12,7 +11,7 @@
   plugins = {
     avante = {
       enable = false;
-      lazyLoad.settings.event = [ "DeferredUIEnter" ];
+      lazyLoad.settings.event = ["DeferredUIEnter"];
 
       settings = {
         provider = "copilot";

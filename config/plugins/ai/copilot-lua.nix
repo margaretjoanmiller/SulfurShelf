@@ -3,16 +3,14 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) optionals mkIf;
-in
-{
+in {
   extraPlugins = optionals config.plugins.copilot-lua.enable (
     with pkgs.vimPlugins;
-    optionals config.plugins.lualine.enable [
-      copilot-lualine
-    ]
+      optionals config.plugins.lualine.enable [
+        copilot-lualine
+      ]
   );
 
   plugins = {
@@ -20,7 +18,7 @@ in
       enable = true;
 
       lazyLoad.settings = {
-        event = [ "InsertEnter" ];
+        event = ["InsertEnter"];
       };
 
       settings = {

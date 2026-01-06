@@ -88,7 +88,7 @@
 
   keymaps = [
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = ":DapContinue<cr>";
       key = "<leader>dc";
       options = {
@@ -96,7 +96,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = ":DapStepOver<cr>";
       key = "<leader>dO";
       options = {
@@ -104,7 +104,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = ":DapStepInto<cr>";
       key = "<leader>di";
       options = {
@@ -112,7 +112,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = ":DapStepOut<cr>";
       key = "<leader>do";
       options = {
@@ -120,7 +120,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = "<cmd>lua require('dap').pause()<cr>";
       key = "<leader>dp";
       options = {
@@ -128,7 +128,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = ":DapToggleBreakpoint<cr>";
       key = "<leader>db";
       options = {
@@ -136,7 +136,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>";
       key = "<leader>dB";
       options = {
@@ -144,7 +144,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = ":DapToggleRepl<cr>";
       key = "<leader>dR";
       options = {
@@ -152,7 +152,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = "<cmd>lua require('dap').run_last()<cr>";
       key = "<leader>dr";
       options = {
@@ -160,7 +160,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = "<cmd>lua require('dap').session()<cr>";
       key = "<leader>ds";
       options = {
@@ -168,7 +168,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = ":DapTerminate<cr>";
       key = "<leader>dt";
       options = {
@@ -176,7 +176,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = "<cmd>lua require('dap.ui.widgets').hover()<cr>";
       key = "<leader>dw";
       options = {
@@ -184,7 +184,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = "<cmd>lua require('dapui').toggle()<cr>";
       key = "<leader>du";
       options = {
@@ -192,7 +192,7 @@
       };
     }
     {
-      mode = [ "n" ];
+      mode = ["n"];
       action = "<cmd>lua require('dapui').eval()<cr>";
       key = "<leader>de";
       options = {

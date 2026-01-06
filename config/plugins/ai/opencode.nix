@@ -3,27 +3,24 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) optionals mkIf;
-in
-{
+in {
   extraPackages = with pkgs; [
     lsof
   ];
 
-  extraLuaPackages =
-    ps:
+  extraLuaPackages = ps:
     lib.optionals
-      (
-        # Plugins with known tiktoken_core usage
-        config.plugins.copilot-lua.enable
-        # Plugins with chat/session features that could benefit
-        || config.plugins.opencode.enable
-      )
-      [
-        ps.tiktoken_core
-      ];
+    (
+      # Plugins with known tiktoken_core usage
+      config.plugins.copilot-lua.enable
+      # Plugins with chat/session features that could benefit
+      || config.plugins.opencode.enable
+    )
+    [
+      ps.tiktoken_core
+    ];
 
   plugins = {
     opencode = {

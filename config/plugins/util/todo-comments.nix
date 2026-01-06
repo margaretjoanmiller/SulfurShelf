@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  inherit (lib) mkIf optional optionalString;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  inherit (lib) mkIf optional optionalString;
+in {
   plugins.todo-comments = {
     enable = true;
 
@@ -31,11 +33,12 @@ in
             desc = "Find TODOs";
           }
         ];
-        cmd = [
-          "TodoLocList"
-          "TodoQuickFix"
-        ]
-        ++ optional config.plugins.trouble.enable "TodoTrouble";
+        cmd =
+          [
+            "TodoLocList"
+            "TodoQuickFix"
+          ]
+          ++ optional config.plugins.trouble.enable "TodoTrouble";
       };
     };
 

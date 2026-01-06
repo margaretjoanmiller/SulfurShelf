@@ -2,11 +2,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
-in
-{
+in {
   plugins.telescope = {
     extensions = {
       manix.enable = true;

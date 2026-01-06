@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   extraConfigLuaPre = lib.mkIf (config.plugins.mini-hipatterns.enable) ''
     local function in_comment(pattern)
       return function(buf_id)

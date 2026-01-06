@@ -2,11 +2,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) getExe;
-in
-{
+in {
   lsp.servers = {
     statix.enable = true;
 
@@ -15,7 +13,7 @@ in
 
       config.settings.nixd = {
         formatting = {
-          command = [ "${getExe pkgs.nixfmt-rfc-style}" ];
+          command = ["${getExe pkgs.nixfmt-rfc-style}"];
         };
       };
     };
@@ -29,13 +27,13 @@ in
 
     conform-nvim.settings = {
       formatters_by_ft = {
-        nix = [ "nixfmt" ];
+        nix = ["nixfmt"];
       };
     };
 
     lint = {
       lintersByFt = {
-        nix = [ "deadnix" ];
+        nix = ["deadnix"];
       };
 
       linters = {

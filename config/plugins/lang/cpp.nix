@@ -1,8 +1,10 @@
-{ pkgs, lib, ... }:
-let
-  inherit (lib) getExe';
-in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  inherit (lib) getExe';
+in {
   lsp.servers = {
     cmake.enable = true;
 
@@ -37,15 +39,15 @@ in
   plugins = {
     conform-nvim.settings = {
       formatters_by_ft = {
-        cpp = [ "clang-format" ];
-        cmake = [ "cmake-format" ];
+        cpp = ["clang-format"];
+        cmake = ["cmake-format"];
       };
     };
 
     lint = {
       lintersByFt = {
-        cpp = [ "clangtidy" ];
-        cmake = [ "cmakelint" ];
+        cpp = ["clangtidy"];
+        cmake = ["cmakelint"];
       };
 
       linters = {

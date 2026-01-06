@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  inherit (lib) mkIf optionals;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  inherit (lib) mkIf optionals;
+in {
   plugins = {
     compiler = {
       enable = true;

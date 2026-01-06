@@ -3,11 +3,9 @@
   config,
   icons,
   ...
-}:
-let
+}: let
   inherit (lib) optionalString;
-in
-{
+in {
   plugins.lualine = {
     enable = true;
 
@@ -20,7 +18,7 @@ in
     settings = {
       options = {
         always_divide_middle = true;
-        ignore_focus = [ "neo-tree" ];
+        ignore_focus = ["neo-tree"];
         globalstatus = true; # have a single statusline at bottom of neovim instead of one for every window
         disabled_filetypes = {
           __unkeyed-1 = "startify";
@@ -56,10 +54,10 @@ in
         };
       };
 
-      extensions = [ "fzf" ];
+      extensions = ["fzf"];
       sections = {
-        lualine_a = [ "mode" ];
-        lualine_b = [ "branch" ];
+        lualine_a = ["mode"];
+        lualine_b = ["branch"];
 
         lualine_y = [
           {
@@ -196,33 +194,33 @@ in
                 "Snacks.profiler.status()",
               },
               ${optionalString (config.plugins.sidekick.enable) ''
-                {
-                  function()
-                    return " "
-                  end,
+      {
+        function()
+          return " "
+        end,
 
-                  color =
-                  function()
-                    local status_mod = package.loaded["sidekick.status"]
-                    if not status_mod then return nil end
-                    local status = status_mod.get()
-                    if status then
-                        return status.kind == "Error" and "DiagnosticError" or status.busy and "DiagnosticWarn" or "Special"
-                    end
-                  end,
-                  separator = "(",
+        color =
+        function()
+          local status_mod = package.loaded["sidekick.status"]
+          if not status_mod then return nil end
+          local status = status_mod.get()
+          if status then
+              return status.kind == "Error" and "DiagnosticError" or status.busy and "DiagnosticWarn" or "Special"
+          end
+        end,
+        separator = "(",
 
-                  cond = function()
-                    local status = package.loaded["sidekick.status"]
-                    return status and status.get() ~= nil
-                  end,
-                },
-              ''}
+        cond = function()
+          local status = package.loaded["sidekick.status"]
+          return status and status.get() ~= nil
+        end,
+      },
+    ''}
               ${optionalString (config.plugins.copilot-lua.enable) ''
-                {
-                  "copilot",
-                }
-              ''}
+      {
+        "copilot",
+      }
+    ''}
           }
       }
     })

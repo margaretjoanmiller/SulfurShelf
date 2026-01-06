@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf optionals;
-in
-{
+in {
   plugins = {
     conform-nvim = {
       enable = true;
@@ -20,8 +18,8 @@ in
       };
 
       lazyLoad.settings = {
-        cmd = [ "ConformInfo" ];
-        event = [ "BufWritePre" ];
+        cmd = ["ConformInfo"];
+        event = ["BufWritePre"];
       };
 
       luaConfig.pre = ''
@@ -52,7 +50,7 @@ in
             env = {
               BIOME_CONFIG_PATH = pkgs.writeTextFile {
                 name = "biome.json";
-                text = lib.generators.toJSON { } {
+                text = lib.generators.toJSON {} {
                   "$schema" = "${pkgs.biome}/node_modules/@biomejs/biome/configuration_schema.json";
                   formatter.useEditorconfig = true;
                 };

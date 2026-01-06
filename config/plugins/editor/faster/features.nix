@@ -1,8 +1,4 @@
-{
-  config,
-  ...
-}:
-{
+{config, ...}: {
   plugins.faster.settings.features = {
     noice = {
       on = config.plugins.noice.enable;

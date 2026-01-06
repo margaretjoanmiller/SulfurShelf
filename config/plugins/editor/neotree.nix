@@ -1,9 +1,8 @@
-{ icons, ... }:
-{
+{icons, ...}: {
   plugins.neo-tree = {
     enable = true;
 
-    lazyLoad.settings.cmd = [ "Neotree" ];
+    lazyLoad.settings.cmd = ["Neotree"];
 
     settings = {
       closeIfLastWindow = true;

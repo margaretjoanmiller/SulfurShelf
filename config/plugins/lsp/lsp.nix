@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   lsp = {
     inlayHints.enable = true;
 
@@ -52,36 +51,36 @@
     # };
   };
 
-  keymapsOnEvents.LspAttach = [
-    # Diagnostic keymaps
-    {
-      key = "<leader>lH";
-      mode = "n";
-      action = lib.nixvim.mkRaw "vim.diagnostic.open_float";
-      options = {
-        silent = true;
-        desc = "Lsp diagnostic open_float";
-      };
-    }
-  ]
-  ++
-    lib.optionals
-      (
-        !config.plugins.fzf-lua.enable
-        || (config.plugins.snacks.enable && lib.hasAttr "picker" config.plugins.snacks.settings)
-      )
-      [
-        # Code action keymap (if fzf-lua is not enabled)
-        {
-          key = "<leader>la";
-          mode = "n";
-          action = lib.nixvim.mkRaw "vim.lsp.buf.code_action";
-          options = {
-            silent = true;
-            desc = "Lsp buf code_action";
-          };
-        }
-      ];
+  keymapsOnEvents.LspAttach =
+    [
+      # Diagnostic keymaps
+      {
+        key = "<leader>lH";
+        mode = "n";
+        action = lib.nixvim.mkRaw "vim.diagnostic.open_float";
+        options = {
+          silent = true;
+          desc = "Lsp diagnostic open_float";
+        };
+      }
+    ]
+    ++ lib.optionals
+    (
+      !config.plugins.fzf-lua.enable
+      || (config.plugins.snacks.enable && lib.hasAttr "picker" config.plugins.snacks.settings)
+    )
+    [
+      # Code action keymap (if fzf-lua is not enabled)
+      {
+        key = "<leader>la";
+        mode = "n";
+        action = lib.nixvim.mkRaw "vim.lsp.buf.code_action";
+        options = {
+          silent = true;
+          desc = "Lsp buf code_action";
+        };
+      }
+    ];
 
   plugins = {
     lspconfig.enable = true;

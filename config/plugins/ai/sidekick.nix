@@ -2,8 +2,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   config = {
     plugins = {
       sidekick = {
@@ -116,12 +115,12 @@
               end
               -- Try copilot-lsp NES if available
               ${lib.optionalString config.plugins.copilot-lua.enable ''
-                if vim.b[vim.api.nvim_get_current_buf()].nes_state then
-                  require("copilot-lsp.nes").apply_pending_nes()
-                  require("copilot-lsp.nes").walk_cursor_end_edit()
-                  return
-                end
-              ''}
+              if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+                require("copilot-lsp.nes").apply_pending_nes()
+                require("copilot-lsp.nes").walk_cursor_end_edit()
+                return
+              end
+            ''}
               -- fallback to normal tab
               return "<Tab>"
             end

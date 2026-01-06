@@ -3,42 +3,41 @@
     bufferline = {
       enable = true;
       settings = {
-        highlights =
-          let
-            commonBgColor = "#363a4f";
-            commonFgColor = "#1e2030";
+        highlights = let
+          commonBgColor = "#363a4f";
+          commonFgColor = "#1e2030";
 
-            commonSelectedAttrs = {
-              bg = commonBgColor;
-            };
+          commonSelectedAttrs = {
+            bg = commonBgColor;
+          };
 
-            # Define a set with common selected attributes
-            selectedAttrsSet = builtins.listToAttrs (
-              map
-                (name: {
-                  inherit name;
-                  value = commonSelectedAttrs;
-                })
-                [
-                  # "separator_selected" # Handled uniquely
-                  "buffer_selected"
-                  "tab_selected"
-                  "numbers_selected"
-                  "close_button_selected"
-                  "duplicate_selected"
-                  "modified_selected"
-                  "info_selected"
-                  "warning_selected"
-                  "error_selected"
-                  "hint_selected"
-                  "diagnostic_selected"
-                  "info_diagnostic_selected"
-                  "warning_diagnostic_selected"
-                  "error_diagnostic_selected"
-                  "hint_diagnostic_selected"
-                ]
-            );
-          in
+          # Define a set with common selected attributes
+          selectedAttrsSet = builtins.listToAttrs (
+            map
+            (name: {
+              inherit name;
+              value = commonSelectedAttrs;
+            })
+            [
+              # "separator_selected" # Handled uniquely
+              "buffer_selected"
+              "tab_selected"
+              "numbers_selected"
+              "close_button_selected"
+              "duplicate_selected"
+              "modified_selected"
+              "info_selected"
+              "warning_selected"
+              "error_selected"
+              "hint_selected"
+              "diagnostic_selected"
+              "info_diagnostic_selected"
+              "warning_diagnostic_selected"
+              "error_diagnostic_selected"
+              "hint_diagnostic_selected"
+            ]
+          );
+        in
           # Merge the common selected attributes with the unique attributes
           selectedAttrsSet
           // {
@@ -59,19 +58,23 @@
 
         options = {
           diagnostics = "nvim_lsp";
-          diagnostics_indicator = /* Lua */ ''
-            function(count, level, diagnostics_dict, context)
-              local s = ""
-              for e, n in pairs(diagnostics_dict) do
-                local sym = e == "error" and " "
-                  or (e == "warning" and " " or "" )
-                if(sym ~= "") then
-                  s = s .. " " .. n .. sym
+          diagnostics_indicator =
+            /*
+            Lua
+            */
+            ''
+              function(count, level, diagnostics_dict, context)
+                local s = ""
+                for e, n in pairs(diagnostics_dict) do
+                  local sym = e == "error" and " "
+                    or (e == "warning" and " " or "" )
+                  if(sym ~= "") then
+                    s = s .. " " .. n .. sym
+                  end
                 end
+                return s
               end
-              return s
-            end
-          '';
+            '';
           # Will make sure all names in bufferline are unique
           enforce_regular_tabs = false;
 

@@ -3,16 +3,14 @@
   pkgs,
   lib,
   ...
-}:
-{
+}: {
   imports = [
     ./blink-sources.nix
     ./blink-community-plugins.nix
   ];
 
   extraPackages = lib.mkIf config.plugins.blink-cmp.enable (
-    with pkgs;
-    [
+    with pkgs; [
       # blink-cmp-git
       gh
       # blink-cmp-dictionary
@@ -114,7 +112,7 @@
 
             draw = {
               snippet_indicator = "◦";
-              treesitter = [ "lsp" ];
+              treesitter = ["lsp"];
               columns.__raw = ''
                 function()
                     return {
@@ -229,7 +227,7 @@
                 '';
               }
             ]
-            ++ [ "fallback" ];
+            ++ ["fallback"];
         };
 
         signature = {

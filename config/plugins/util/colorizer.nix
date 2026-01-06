@@ -1,11 +1,11 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   extraPlugins = with pkgs.vimPlugins; [
     windows-nvim
     nvzone-minty
   ];
 
-  extraConfigLua = # lua
+  extraConfigLua =
+    # lua
     ''
       vim.o.winwidth = 10
       vim.o.winminwidth = 10

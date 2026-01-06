@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   extraPackages = with pkgs; [
     # Image conversion (required for image module)
     imagemagick

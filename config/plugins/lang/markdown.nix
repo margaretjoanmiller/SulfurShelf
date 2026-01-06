@@ -2,8 +2,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   lsp.servers = {
     marksman.enable = true;
   };
@@ -14,11 +13,11 @@
     };
 
     conform-nvim.settings = {
-      formatters_by_ft.markdown = [ "deno_fmt" ];
+      formatters_by_ft.markdown = ["deno_fmt"];
     };
 
     lint = {
-      lintersByFt.markdown = [ "markdownlint" ];
+      lintersByFt.markdown = ["markdownlint"];
       linters.markdownlint.cmd = lib.getExe pkgs.markdownlint-cli;
     };
   };

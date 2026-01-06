@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   lsp.servers = {
     pyright = {
       enable = true;
@@ -34,10 +37,10 @@
     };
 
     lint = {
-      lintersByFt.python = [ "mypy" ];
+      lintersByFt.python = ["mypy"];
       linters.mypy = {
         cmd = lib.getExe pkgs.mypy;
-        args = [ "--ignore-missing-imports" ];
+        args = ["--ignore-missing-imports"];
       };
     };
   };

@@ -2,11 +2,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf optionals hasAttr;
-in
-{
+in {
   imports = [
     ./picker-lsp.nix
   ];

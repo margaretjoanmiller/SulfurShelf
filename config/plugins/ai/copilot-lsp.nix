@@ -1,11 +1,10 @@
-{ config, ... }:
-{
+{config, ...}: {
   plugins = {
     copilot-lsp = {
       inherit (config.plugins.copilot-lua) enable;
 
       lazyLoad.settings = {
-        event = [ "InsertEnter" ];
+        event = ["InsertEnter"];
       };
 
       settings = {

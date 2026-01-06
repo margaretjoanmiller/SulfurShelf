@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   lsp.servers = {
     dockerls.enable = true;
   };
@@ -7,7 +10,7 @@
   plugins = {
     lint = {
       lintersByFt = {
-        docker = [ "hadolint" ];
+        docker = ["hadolint"];
       };
 
       linters = {

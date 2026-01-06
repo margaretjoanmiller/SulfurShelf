@@ -2,12 +2,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf;
-in
-
-{
+in {
   plugins = {
     devdocs = {
       enable = true;

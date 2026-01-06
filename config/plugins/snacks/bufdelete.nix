@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   plugins.snacks = {
     settings = {
       bufdelete.enabled = true;

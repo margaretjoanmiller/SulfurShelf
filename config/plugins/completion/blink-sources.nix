@@ -3,10 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   plugins.blink-cmp.settings.sources = {
-    default.__raw = # Lua
+    default.__raw =
+      # Lua
       ''
         function(ctx)
           -- Base sources that are always available
@@ -18,8 +18,8 @@
           -- Add optional sources based on plugin availability
           ${lib.optionalString config.plugins.blink-copilot.enable "table.insert(common_sources, 'copilot')"}
           ${lib.optionalString (
-            config.plugins.blink-cmp-dictionary.enable || config.plugins.blink-cmp-words.enable
-          ) "table.insert(common_sources, 'dictionary')"}
+          config.plugins.blink-cmp-dictionary.enable || config.plugins.blink-cmp-words.enable
+        ) "table.insert(common_sources, 'dictionary')"}
           ${lib.optionalString config.plugins.blink-emoji.enable "table.insert(common_sources, 'emoji')"}
           ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-nerdfont-nvim config.extraPlugins) "table.insert(common_sources, 'nerdfont')"}
           ${lib.optionalString config.plugins.blink-cmp-spell.enable "table.insert(common_sources, 'spell')"}
@@ -32,26 +32,28 @@
           if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
             local comment_sources = { 'buffer', 'spell' }
             ${lib.optionalString (
-              config.plugins.blink-cmp-dictionary.enable || config.plugins.blink-cmp-words.enable
-            ) "table.insert(comment_sources, 'dictionary')"}
+          config.plugins.blink-cmp-dictionary.enable || config.plugins.blink-cmp-words.enable
+        ) "table.insert(comment_sources, 'dictionary')"}
             return comment_sources
           elseif vim.bo.filetype == 'gitcommit' then
             local git_sources = { 'buffer', 'spell' }
             ${lib.optionalString (
-              config.plugins.blink-cmp-dictionary.enable || config.plugins.blink-cmp-words.enable
-            ) "table.insert(git_sources, 'dictionary')"}
+          config.plugins.blink-cmp-dictionary.enable || config.plugins.blink-cmp-words.enable
+        ) "table.insert(git_sources, 'dictionary')"}
             ${lib.optionalString config.plugins.blink-cmp-git.enable "table.insert(git_sources, 'git')"}
             ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-cmp-conventional-commits config.extraPlugins) "table.insert(git_sources, 'conventional_commits')"}
             return git_sources
-          ${lib.optionalString config.plugins.easy-dotnet.enable # Lua
-            ''
-              elseif vim.bo.filetype == "cs" or vim.bo.filetype == "fsharp" or vim.bo.filetype == "vb" or vim.bo.filetype == "razor" or vim.bo.filetype == "xml" then
-                -- For .NET filetypes, add easy-dotnet to the sources
-                local dotnet_sources = vim.deepcopy(common_sources)
-                table.insert(dotnet_sources, 'easy-dotnet')
-                return dotnet_sources
-            ''
-          }
+          ${
+          lib.optionalString config.plugins.easy-dotnet.enable # Lua
+          
+          ''
+            elseif vim.bo.filetype == "cs" or vim.bo.filetype == "fsharp" or vim.bo.filetype == "vb" or vim.bo.filetype == "razor" or vim.bo.filetype == "xml" then
+              -- For .NET filetypes, add easy-dotnet to the sources
+              local dotnet_sources = vim.deepcopy(common_sources)
+              table.insert(dotnet_sources, 'easy-dotnet')
+              return dotnet_sources
+          ''
+        }
           else
             return common_sources
           end
@@ -84,7 +86,7 @@
 
       lsp = {
         score_offset = 80;
-        fallbacks = [ ]; # Allow buffer to show independently
+        fallbacks = []; # Allow buffer to show independently
         transform_items.__raw = ''
           function(_, items)
             return vim.tbl_filter(function(item)
@@ -110,16 +112,16 @@
       # Community sources
       conventional_commits =
         lib.mkIf (lib.elem pkgs.vimPlugins.blink-cmp-conventional-commits config.extraPlugins)
-          {
-            name = "Conventional Commits";
-            module = "blink-cmp-conventional-commits";
-            score_offset = 68;
-            enabled.__raw = ''
-              function()
-                return vim.bo.filetype == 'gitcommit'
-              end
-            '';
-          };
+        {
+          name = "Conventional Commits";
+          module = "blink-cmp-conventional-commits";
+          score_offset = 68;
+          enabled.__raw = ''
+            function()
+              return vim.bo.filetype == 'gitcommit'
+            end
+          '';
+        };
 
       copilot = lib.mkIf config.plugins.blink-copilot.enable {
         name = "copilot";
@@ -206,7 +208,7 @@
           end
         '';
         opts = {
-          ignore = { };
+          ignore = {};
           only_semantic_versions = true;
           only_latest_version = false;
         };

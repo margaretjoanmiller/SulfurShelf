@@ -3,7 +3,7 @@
     img-clip = {
       enable = true;
       lazyLoad.settings = {
-        event = [ "DeferredUIEnter" ];
+        event = ["DeferredUIEnter"];
         keys = [
           {
             __unkeyed-1 = "<leader>P";

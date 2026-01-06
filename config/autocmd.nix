@@ -1,8 +1,8 @@
 {
   autoGroups = {
     # highlight_yank = { };
-    vim_enter = { };
-    indentscope = { };
+    vim_enter = {};
+    indentscope = {};
     # restore_cursor = { };
   };
 
@@ -22,7 +22,7 @@
     # }
     {
       group = "indentscope";
-      event = [ "FileType" ];
+      event = ["FileType"];
       pattern = [
         "help"
         "Startup"

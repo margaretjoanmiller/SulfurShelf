@@ -1,5 +1,8 @@
-{ lib, config, ... }:
 {
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./hipatterns.nix
     ./move.nix

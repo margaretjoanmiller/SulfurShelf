@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   enableMan = false;
   # Import all your configuration modules here
   imports = [

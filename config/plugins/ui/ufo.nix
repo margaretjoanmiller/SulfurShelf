@@ -1,8 +1,6 @@
-{ lib, ... }:
-let
+{lib, ...}: let
   inherit (lib.nixvim) mkRaw;
-in
-{
+in {
   autoCmd = [
     {
       event = [
@@ -33,11 +31,11 @@ in
         segments = [
           {
             click = "v:lua.ScFa";
-            text = [ (mkRaw "require('statuscol.builtin').foldfunc") ];
+            text = [(mkRaw "require('statuscol.builtin').foldfunc")];
           }
           {
             click = "v:lua.ScSa";
-            text = [ " %s" ];
+            text = [" %s"];
           }
           {
             click = "v:lua.ScLa";
@@ -53,7 +51,8 @@ in
     nvim-ufo = {
       enable = true;
       settings = {
-        provider_selector = # lua
+        provider_selector =
+          # lua
           ''
             function()
               return { "lsp", "indent" }
@@ -95,5 +94,4 @@ in
       options.desc = "Peek Folded Lines";
     }
   ];
-
 }

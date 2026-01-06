@@ -2,8 +2,7 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   # Helper to create toggle keymaps for faster features
   mkFasterToggle = feature: key: desc: {
     mode = "n";
@@ -25,8 +24,7 @@ let
       desc = "Toggle ${desc}";
     };
   };
-in
-{
+in {
   keymaps =
     lib.optionals config.plugins.faster.enable [
       # Global toggles

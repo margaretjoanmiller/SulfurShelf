@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-let
-
+{pkgs, ...}: let
   kulala = pkgs.vimUtils.buildVimPlugin {
     name = "kulala-nvim";
     src = pkgs.fetchFromGitHub {
@@ -14,14 +12,12 @@ let
       jq
     ];
   };
-
-in
-{
+in {
   lsp.servers = {
     kulala_lsp.enable = true;
   };
 
-  extraPlugins = [ kulala ];
+  extraPlugins = [kulala];
 
   extraConfigLua = ''
     require("kulala").setup({})

@@ -3,7 +3,7 @@
     trouble = {
       enable = true;
 
-      lazyLoad.settings.cmd = [ "Trouble" ];
+      lazyLoad.settings.cmd = ["Trouble"];
 
       settings = {
         auto_close = true;

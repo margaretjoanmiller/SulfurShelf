@@ -102,7 +102,6 @@
 
       # Set encoding type
       encoding = "utf-8";
-
     };
 
     # extraConfigLua = ''

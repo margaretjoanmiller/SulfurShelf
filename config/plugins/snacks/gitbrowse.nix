@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   plugins.snacks = {
     settings = {
       gitbrowse.enabled = true;
